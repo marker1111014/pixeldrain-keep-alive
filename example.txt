@@ -1,0 +1,10 @@
+請在你的 Pixeldrain 「My Files」頁面中：
+
+將網頁一直往下滾動，確保所有的 70 個檔案都曾在畫面上出現過（這樣它們就會被載入到網頁 DOM 中）。
+
+按下 F12 打開開發者工具，切換到 Console (主控台)。
+
+貼上並執行以下這一行 JavaScript 程式碼：
+JSON.stringify(Array.from(document.querySelectorAll('a.node')).map(a => a.href.split('/').pop()));
+
+執行後，主控台就會直接印出一個包含所有 70 個檔案 ID 的完整 Python 陣列格式（例如 ["id1","id2"...]），你只要把那整串結果複製下來，直接貼到 GitHub Actions 的腳本裡替換掉 FILE_IDS 就可以了。
